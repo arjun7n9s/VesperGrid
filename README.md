@@ -56,13 +56,25 @@ synthetic evidence pack
 
 The codebase is being pushed in deliberate, meaningful stages so the public history reads like a real product forming:
 
-1. **Product foundation:** corrected identity, hardware target, README, progress tracker, basic app scaffolding.
+1. **Product foundation:** corrected identity, hardware target, README, license, and basic app scaffolding.
 2. **Scenario source of truth:** Sector 4 schema, typed scenario data, synthetic evidence manifest.
 3. **Async ingest pipeline:** FastAPI job lifecycle, progress events, deterministic fallback.
 4. **MI300X inference path:** vLLM-compatible Qwen-VL client and runtime configuration.
 5. **Console experience:** cinematic evidence board, source lineage, uncertainty ledger, operator brief.
 6. **Synthetic asset system:** procedural maps, sensor strips, CCTV/drone frames, audit samples.
 7. **Deployment package:** AMD cloud bootstrap, Hugging Face Space strategy, demo readiness notes.
+
+## Demo Scenario
+
+The first scenario is **Sector 4 Solvent Containment**, a fictional industrial safety incident in a synthetic port logistics corridor.
+
+The source-of-truth scenario lives at `apps/console/src/data/sector4.json` and is shared across the stack:
+
+- FastAPI validates it through Pydantic models in `apps/api/src/vespergrid/models.py`.
+- The deterministic scenario loader in `apps/api/src/vespergrid/engine.py` returns fresh validated copies for API workflows.
+- The console reads the same JSON through `apps/console/src/domain.ts` so UI state, backend state, and demo docs cannot drift apart.
+
+The scenario encodes source-linked evidence, risk zones, candidate actions, uncertainty issues, MI300X runtime telemetry, and a concise operator brief.
 
 ## Why This Is Different
 
