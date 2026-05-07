@@ -1,0 +1,25 @@
+GPU
+Type: AMD Instinct MI300X
+GPU: 1
+VRAM: 192 GB
+vCPU: 20
+RAM: 240 GB
+Boot Disk: 720 GB NVMe SSD
+Scratch Disk: 5 TB NVMe SSD
+
+Quick Start Packages - select any one
+1. ROCm Software
+   ROCm. Install any AI tools you need.
+2. vLLM
+   vLLM 0.17.1, ROCm 7.2.0. Optimized for LLM inference and serving.
+3. SGLang
+   SGLang 0.5.9, ROCm 7.0.0. Optimized for LLM inference and serving.
+4. PyTorch
+   PyTorch 2.6.0, ROCm 7.0.0. Ready for PyTorch development and training.
+5. Megatron
+   Megatron-LM 0.10.0, ROCm 7.0. Ideal for large-scale LLM training.
+6. ROCm enabled GPT-OSS
+   OpenAI open-weight models designed for reasoning, agentic tasks, and developer use cases on ROCm.
+
+Bare OS:
+Ubuntu

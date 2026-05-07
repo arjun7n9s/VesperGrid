@@ -1,0 +1,18 @@
+node_modules/
+dist/
+apps/console/dist/
+*.tsbuildinfo
+__pycache__/
+*.pyc
+.venv/
+.env
+.DS_Store
+Research/
+
+# Local PDF/extraction artifacts (not part of the project)
+.amd_pdf_pages/
+amd_pdf_text.txt
+AMD.pdf
+
+# Local submission/build artifacts are generated near deadline.
+submission/
