@@ -8,6 +8,7 @@ __pycache__/
 .env
 .DS_Store
 Research/
+PROGRESS.md
 
 # Local PDF/extraction artifacts (not part of the project)
 .amd_pdf_pages/

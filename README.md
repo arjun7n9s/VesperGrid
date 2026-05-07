@@ -74,6 +74,6 @@ The planned license is **Apache-2.0**, which is friendly to open-source judging,
 
 All demo assets and scenario data are synthetic. No real facility footage, maps, CCTV, or private operational data should be committed.
 
-## Submission Tracker
+## Project Status
 
-See [PROGRESS.md](PROGRESS.md) for the current build state, staged push plan, risk register, and next execution steps.
+The public repository is being developed through small, reviewable milestones. Internal progress notes and competition working logs are intentionally kept out of Git so the repo stays focused on source code, reproducible assets, deployment notes, and judge-facing documentation.
