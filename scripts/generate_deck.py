@@ -17,7 +17,7 @@ paginate: true
 backgroundColor: '#0a0d0b'
 color: '#e7eef0'
 style: |
-  section { font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.45; padding: 70px 90px; }
+  section { font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.4; padding: 48px 70px 60px; font-size: 26px; }
   h1 { color: #ffffff; letter-spacing: -0.01em; }
   h2 { color: #86d7ff; }
   h3 { color: #ffb181; }
@@ -76,32 +76,27 @@ evidence pack \u2192 async ingest \u2192 Qwen-VL on MI300X
 The console is the operator's read-only view of the evidence-to-decision chain.""",
 
     # 4. Live demo (1) - the operations console
-    """# Live demo \u2014 operations console
+    """# Operations console
 
-![bg right:55% w:100%](hero_above_fold.png)
+![bg right:58% w:100%](hero_above_fold.png)
 
-**Hero band**: incident, severity, location, confidence
-
-**Evidence Mesh** (left): four heterogeneous sources, each with a `SRC-*` UUID
-
-**Decision Synthesizer** (right): three candidate plans, each linked to evidence
-
-A live ingest stream appends a fifth source: the operator's note.""",
+- **Hero band** — incident, severity, confidence
+- **Evidence Mesh** — four sources, each `SRC-*` tagged
+- **Decision Synthesizer** — plans linked to evidence
+- Live ingest appends a fifth source: the operator note""",
 
     # 5. Live demo (2) - the wow moment: source lineage
-    """# Source lineage \u2014 the wow moment
+    """# Source lineage — the wow moment
 
-![bg right:55% w:100%](hero_source_lineage.png)
+![bg right:58% w:100%](hero_source_lineage.png)
 
-Click `SRC-VID-2217`.
-
-The same UUID surfaces:
+Click `SRC-VID-2217`. One UUID surfaces three things:
 
 - the **raw CCTV thumbnail** (what the AI saw)
 - the **candidate plan** it produced
-- the **uncertainty issue** it created (Gate 4 contradiction)
+- the **uncertainty issue** it created
 
-No prose. No prompt-engineering. Just a verifiable chain.""",
+No prose. No prompt magic. A verifiable chain.""",
 
     # 6. Async multimodal pipeline (the engineering)
     """# Async pipeline \u2014 no synchronous trap

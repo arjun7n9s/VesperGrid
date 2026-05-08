@@ -1,11 +1,11 @@
----
+﻿---
 marp: true
 theme: gaia
 paginate: true
 backgroundColor: '#0a0d0b'
 color: '#e7eef0'
 style: |
-  section { font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.45; padding: 70px 90px; }
+  section { font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.4; padding: 48px 70px 60px; font-size: 26px; }
   h1 { color: #ffffff; letter-spacing: -0.01em; }
   h2 { color: #86d7ff; }
   h3 { color: #ffb181; }
@@ -20,7 +20,7 @@ style: |
   table { border-collapse: collapse; }
   table th, table td { padding: 6px 14px; border-bottom: 1px solid #243030; }
   footer { color: #6b7a78; font-size: 0.6em; }
-footer: 'VesperGrid · AMD Developer Hackathon · Track 3: Vision & Multimodal AI'
+footer: 'VesperGrid Â· AMD Developer Hackathon Â· Track 3: Vision & Multimodal AI'
 ---
 
 <!-- _class: lead -->
@@ -32,7 +32,7 @@ footer: 'VesperGrid · AMD Developer Hackathon · Track 3: Vision & Multimodal A
 A source-linked decision-support model for industrial safety incidents.
 Multimodal evidence in. Candidate plans, with audit trail, out.
 
-`Track 3 · Qwen Challenge · HF Special Prize · Build-in-Public`
+`Track 3 Â· Qwen Challenge Â· HF Special Prize Â· Build-in-Public`
 
 ---
 
@@ -55,52 +55,47 @@ Decision pressure is rising. A wrong route can cost lives.
 > Turn **fragmented multimodal evidence** into a **source-linked operational twin**, with uncertainty named, not buried.
 
 ```
-evidence pack → async ingest → Qwen-VL on MI300X
-            → normalized graph → candidate plan + uncertainty ledger
-            → every claim links back to a SRC-* UUID
+evidence pack â†’ async ingest â†’ Qwen-VL on MI300X
+            â†’ normalized graph â†’ candidate plan + uncertainty ledger
+            â†’ every claim links back to a SRC-* UUID
 ```
 
 The console is the operator's read-only view of the evidence-to-decision chain.
 
 ---
 
-# Live demo — operations console
+# Operations console
 
-![bg right:55% w:100%](hero_above_fold.png)
+![bg right:58% w:100%](hero_above_fold.png)
 
-**Hero band**: incident, severity, location, confidence
-
-**Evidence Mesh** (left): four heterogeneous sources, each with a `SRC-*` UUID
-
-**Decision Synthesizer** (right): three candidate plans, each linked to evidence
-
-A live ingest stream appends a fifth source: the operator's note.
+- **Hero band** â€” incident, severity, confidence
+- **Evidence Mesh** â€” four sources, each `SRC-*` tagged
+- **Decision Synthesizer** â€” plans linked to evidence
+- Live ingest appends a fifth source: the operator note
 
 ---
 
-# Source lineage — the wow moment
+# Source lineage â€” the wow moment
 
-![bg right:55% w:100%](hero_source_lineage.png)
+![bg right:58% w:100%](hero_source_lineage.png)
 
-Click `SRC-VID-2217`.
-
-The same UUID surfaces:
+Click `SRC-VID-2217`. One UUID surfaces three things:
 
 - the **raw CCTV thumbnail** (what the AI saw)
 - the **candidate plan** it produced
-- the **uncertainty issue** it created (Gate 4 contradiction)
+- the **uncertainty issue** it created
 
-No prose. No prompt-engineering. Just a verifiable chain.
+No prose. No prompt magic. A verifiable chain.
 
 ---
 
-# Async pipeline — no synchronous trap
+# Async pipeline â€” no synchronous trap
 
 ```
-POST /api/ingest          → { job_id }
+POST /api/ingest          â†’ { job_id }
 GET  /api/ingest/{id}/events  (SSE)
 
-queued → sampling → parsing → normalizing → synthesizing → complete
+queued â†’ sampling â†’ parsing â†’ normalizing â†’ synthesizing â†’ complete
 ```
 
 Per-stage SSE events drive a real progress bar in the console.
@@ -114,7 +109,7 @@ synthesizer. The demo never breaks. Schemas are Pydantic-validated end-to-end.
 
 | Resource | Value |
 |----------|-------|
-| GPU | 1× AMD Instinct MI300X |
+| GPU | 1Ã— AMD Instinct MI300X |
 | GPU memory | **192 GB VRAM** |
 | Model | Qwen2.5-VL-7B-Instruct via vLLM ROCm |
 | Tensor parallel | TP=1 (single GPU, zero NCCL/RCCL surface) |
@@ -146,9 +141,9 @@ is named, with a severity label and a link back to the offending source.
 
 Buyers feel the pain in cost-per-minute of downtime:
 
-- **Ports & logistics yards** — vessel queuing, gate dwell, dangerous-goods routing
-- **Energy & petrochemical** — perimeter incidents, vapor drift, evacuation paths
-- **Heavy industry** — forklift collisions, contained-spill protocols
+- **Ports & logistics yards** â€” vessel queuing, gate dwell, dangerous-goods routing
+- **Energy & petrochemical** â€” perimeter incidents, vapor drift, evacuation paths
+- **Heavy industry** â€” forklift collisions, contained-spill protocols
 
 ## Roadmap (post-hackathon)
 
@@ -168,7 +163,7 @@ Buyers feel the pain in cost-per-minute of downtime:
 | Demo evidence pack | `demo/sector4/` (synthetic, license-clean) |
 | Live tracker | `PROGRESS.md` |
 
-> **Stackable prizes claimed:** Qwen Challenge · Hugging Face Special Prize
-> · Ship It / Build-in-Public
+> **Stackable prizes claimed:** Qwen Challenge Â· Hugging Face Special Prize
+> Â· Ship It / Build-in-Public
 
 Thank you. Operators deserve evidence-grounded tools, not chatbots.
