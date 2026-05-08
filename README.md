@@ -76,6 +76,21 @@ The source-of-truth scenario lives at `apps/console/src/data/sector4.json` and i
 
 The scenario encodes source-linked evidence, risk zones, candidate actions, uncertainty issues, MI300X runtime telemetry, and a concise operator brief.
 
+## API Surface
+
+The FastAPI service now exposes a deterministic async ingest lifecycle:
+
+| Method | Path | Purpose |
+|--------|------|---------|
+| `GET` | `/api/health` | Liveness, product metadata, accelerator target, runtime plan |
+| `GET` | `/api/scenarios/sector-4-containment` | Returns the validated Sector 4 operational twin |
+| `POST` | `/api/ingest` | Creates an ingest job and returns immediately with `{ job_id, status, backend }` |
+| `GET` | `/api/ingest/{job_id}` | Returns the current job snapshot |
+| `GET` | `/api/ingest/{job_id}/events` | Streams stage progress with Server-Sent Events |
+| `POST` | `/api/ingest/{job_id}/await` | Bounded blocking helper for clients that cannot consume SSE |
+
+The current ingest path is deterministic by design. It proves the orchestration contract first: `queued -> sampling -> parsing -> normalizing -> synthesizing -> complete`. The next milestone attaches Qwen-VL through vLLM behind the same event stream.
+
 ## Why This Is Different
 
 VesperGrid is not a generic assistant and not a reskinned dashboard. Its core interaction is **source lineage**: a judge can click any recommended action and see the exact evidence item that shaped it. The system is intentionally honest about uncertainty instead of hiding ambiguity behind confident prose.
